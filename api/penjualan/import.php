@@ -48,7 +48,7 @@ include "../../konfig/koneksi.php";
         
         $keterangan_detail = substr($keterangan_detail, 0, -1);
 
-        $sql = "INSERT INTO keu_akun_log (uid_akun, created_at, id_data, id_status, keterangan, debet, kredit, saldo, keterangan_detail, tabel,uid_akun_efek) VALUES ('$uid_customer', '$waktu', '$uid_invoice_header', '25', '$invoice_number','$total', '0', '$saldo_kredit', '$keterangan_detail', 'invoice_header','$uid_akun_terima')";
+        $sql = "INSERT INTO keu_akun_log (uid_akun, created_at, id_data, id_status, keterangan, debet, kredit, saldo, keterangan_detail, tabel,uid_akun_efek) VALUES ('$uid_customer', '$waktu', '$uid_invoice_header', '15', '$invoice_number','$total', '0', '$saldo_kredit', '$keterangan_detail', 'invoice_header','$uid_akun_terima')";
         $insert = pg_query($conn, $sql);
         // Update keuangan customer sesudah tanggal
         pg_query($conn, "UPDATE keu_akun SET saldo_terkini= (saldo_terkini + $total) WHERE uid='$uid_customer'");
@@ -62,7 +62,7 @@ include "../../konfig/koneksi.php";
         $saldo_debet = $pembayaran_sebelum + $total;
 
         //PENCATATAN DI LOG KEU AKUN KAS KECIL (BCA)
-        $sql = "INSERT INTO keu_akun_log (uid_akun, created_at, id_data, id_status, keterangan, debet, kredit, saldo, keterangan_detail, tabel,uid_akun_efek) VALUES ('$uid_akun_terima', '$waktu',  '$uid_invoice_header','25', '$invoice_number', '0', '$total', '$saldo_debet', '$keterangan_detail', 'invoice_header', '$uid_customer')";
+        $sql = "INSERT INTO keu_akun_log (uid_akun, created_at, id_data, id_status, keterangan, debet, kredit, saldo, keterangan_detail, tabel,uid_akun_efek) VALUES ('$uid_akun_terima', '$waktu',  '$uid_invoice_header','15', '$invoice_number', '0', '$total', '$saldo_debet', '$keterangan_detail', 'invoice_header', '$uid_customer')";
          pg_query($conn, $sql);
 
         // Update keuangan customer sesudah tanggal
