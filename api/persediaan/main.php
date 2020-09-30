@@ -50,7 +50,7 @@ include "../../konfig/koneksi.php";
         
         //PENCATATAN DI LOG KEU AKUN supplier
 
-        $sql = "INSERT INTO keu_akun_log (uid_akun, created_at, id_data, id_status, keterangan, debet, kredit, saldo,tabel,uid_akun_efek) VALUES ('$uid_akun', '$waktu', '$uid_akun', '4', '$keterangan', '0','$total', '$saldo_kredit', 'detail_barang_log','$uid_akun_terima')";
+        $sql = "INSERT INTO keu_akun_log (uid_akun, created_at, id_data, id_status, keterangan, debet, kredit, saldo,tabel,uid_akun_efek) VALUES ('$uid_akun', '$waktu', '$uid_akun', '4', '$keterangan', '0','$total', '$saldo_kredit', 'detail_barang_log','$uid_akun_kotak')";
         $insert = pg_query($conn, $sql);
         // Update keuangan supplier sesudah tanggal
         pg_query($conn, "UPDATE keu_akun SET saldo_terkini= (saldo_terkini + $total) WHERE uid='$uid_akun'");
@@ -65,7 +65,7 @@ include "../../konfig/koneksi.php";
         $saldo_kredit = $pembayaran_sebelum + $total;
         
         //PENCATATAN DI LOG KEU AKUN KOTAK
-        $sql = "INSERT INTO keu_akun_log (uid_akun, created_at, id_data, id_status, keterangan, debet, kredit, saldo,tabel,uid_akun_efek) VALUES ('$uid_akun_kotak', '$waktu', '$uid_akun', '4', '$keterangan','$total','0','$saldo_kredit', 'detail_barang_log','$uid_akun_terima')";
+        $sql = "INSERT INTO keu_akun_log (uid_akun, created_at, id_data, id_status, keterangan, debet, kredit, saldo,tabel,uid_akun_efek) VALUES ('$uid_akun_kotak', '$waktu', '$uid_akun', '4', '$keterangan','$total','0','$saldo_kredit', 'detail_barang_log','$uid_akun')";
         $insert = pg_query($conn, $sql);
         echo $sql;
         // Update keuangan KOTAK sesudah tanggal
