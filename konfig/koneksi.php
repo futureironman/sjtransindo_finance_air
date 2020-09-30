@@ -16,5 +16,6 @@
  }else{
 	 echo "Error in connecting to database BO";
 	 die();
- }
+ } 
+ 
 ?>
