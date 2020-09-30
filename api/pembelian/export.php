@@ -45,7 +45,6 @@ include "../../konfig/koneksi.php";
         //PENCATATAN DI LOG KEU AKUN customer
 
         $sql = "INSERT INTO keu_akun_log (uid_akun, created_at, id_data, id_status, keterangan, debet, kredit, saldo,tabel,uid_akun_efek) VALUES ('$uid_supplier', '$waktu', '$uid_inv_header', '25', '$uid_inv_header','0', '$total', '$saldo_kredit', 'invoice_header','$uid_akun_terima')";
-        echo "INSERT INTO keu_akun_log (uid_akun, created_at, id_data, id_status, keterangan, debet, kredit, saldo,tabel,uid_akun_efek) VALUES ('$uid_supplier', '$waktu', '$uid_inv_header', '25', '$uid_inv_header','0', '$total', '$saldo_kredit', 'invoice_header','$uid_akun_terima')";
         $insert = pg_query($conn, $sql);
         // Update keuangan customer sesudah tanggal
         pg_query($conn, "UPDATE keu_akun SET saldo_terkini= (saldo_terkini + $total) WHERE uid='$uid_supplier'");
