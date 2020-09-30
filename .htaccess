@@ -1,0 +1,249 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+RewriteRule ^directory/ - [L,R=404]
+
+RewriteRule ^login$ index.php
+
+RewriteRule ^home$ media.php?module=home [QSA,L]
+RewriteRule ^cek-login$ cek_login.php
+RewriteRule ^keluar$ logout.php
+RewriteRule ^lockscreen$ lockscreen.php
+
+RewriteRule ^data-linked$ content/data/linked.php [QSA,L]
+
+
+RewriteRule ^sinkron-invoice-penjualanexport$ content/invoice/aksi.php?act=sinkronpenjualanexport [QSA,L]
+RewriteRule ^sinkron-invoice-penjualanimport$ content/invoice/aksi.php?act=sinkronpenjualanimport [QSA,L]
+RewriteRule ^sinkron-invoice-penjualancustomer$ content/invoice/aksi.php?act=sinkronpenjualancustomer [QSA,L]
+
+
+RewriteRule ^sinkron-invoice-pembelianexport$ content/invoice/aksi.php?act=sinkronpembelianexport [QSA,L]
+RewriteRule ^sinkron-invoice-pembelianimport$ content/invoice/aksi.php?act=sinkronpembelianimport [QSA,L]
+RewriteRule ^sinkron-invoice-pembeliansupplier$ content/invoice/aksi.php?act=sinkronpembeliansupplier [QSA,L]
+
+
+RewriteRule ^profile$ media.php?module=profile [QSA,L]
+RewriteRule ^aksi-edit-profile$ content/profile/aksi.php?act=update [QSA,L]
+
+## Awal Menu coa
+RewriteRule ^coa$ media.php?module=coa [QSA,L]
+RewriteRule ^cek-nomor$ content/coa/aksi.php?act=cek [QSA,L]
+RewriteRule ^tambah-coa$ content/coa/aksi.php?act=tambah [QSA,L]
+RewriteRule ^aksi-tambah-coa$ content/coa/aksi.php?act=input [QSA,L]
+RewriteRule ^tambah-coa2$ content/coa/aksi.php?act=tambah2 [QSA,L]
+RewriteRule ^aksi-tambah-coa2$ content/coa/aksi.php?act=input2 [QSA,L]
+RewriteRule ^edit-coa$ content/coa/aksi.php?act=edit [QSA,L]
+RewriteRule ^aksi-edit-coa$ content/coa/aksi.php?act=update [QSA,L]
+RewriteRule ^aksi-hapus-coa-([0-9a-zA-Z-]+)$ content/coa/aksi.php?act=delete&id=$1 [QSA,L]
+RewriteRule ^view-coa-([0-9a-zA-Z-]+)$ media.php?module=coa&act=view&id=$1 [QSA,L]
+
+
+RewriteRule ^saldoawal-coa$ content/coa/aksi.php?act=saldoawal [QSA,L]
+RewriteRule ^aksi-saldoawal-coa$ content/coa/aksi.php?act=inputsaldoawal [QSA,L]
+
+
+## Akhir Menu coa
+
+RewriteRule ^penjualanimport$ media.php?module=penjualanimport [QSA,L]
+RewriteRule ^penjualanexport$ media.php?module=penjualanexport [QSA,L]
+RewriteRule ^penjualancustomer$ media.php?module=penjualancustomer [QSA,L]
+RewriteRule ^cetak-penjualancustomer$ content/penjualancustomer/cetak.php [QSA,L]
+
+RewriteRule ^pembelianimport$ media.php?module=pembelianimport [QSA,L]
+RewriteRule ^pembelianexport$ media.php?module=pembelianexport [QSA,L]
+RewriteRule ^pembeliansupplier$ media.php?module=pembeliansupplier [QSA,L]
+
+
+RewriteRule ^penyesuaian$ media.php?module=penyesuaian [QSA,L]
+
+
+RewriteRule ^lapjurnalumum$ media.php?module=lapjurnalumum [QSA,L]
+
+RewriteRule ^lapbukubesar$ media.php?module=lapbukubesar [QSA,L]
+RewriteRule ^cetak-lapbukubesar$ content/lapbukubesar/cetak.php [QSA,L]
+
+RewriteRule ^lapbukubesarperiode$ media.php?module=lapbukubesarperiode [QSA,L]
+RewriteRule ^cetak-lapbukubesarperiode$ content/lapbukubesarperiode/cetak.php [QSA,L]
+
+RewriteRule ^lapbukubesartahunan$ media.php?module=lapbukubesartahunan [QSA,L]
+RewriteRule ^cetak-lapbukubesartahunan$ content/lapbukubesartahunan/cetak.php [QSA,L]
+
+
+RewriteRule ^lapneracasaldo$ media.php?module=lapneracasaldo [QSA,L]
+RewriteRule ^cetak-lapneracasaldo$ content/lapneracasaldo/cetak.php [QSA,L]
+
+
+RewriteRule ^laplabarugi$ media.php?module=laplabarugi [QSA,L]
+RewriteRule ^cetak-laplabarugi$ content/laplabarugi/cetak.php [QSA,L]
+
+RewriteRule ^lapsaldoakhir$ media.php?module=lapsaldoakhir [QSA,L]
+
+RewriteRule ^lapsaldoperiode$ media.php?module=lapsaldoperiode [QSA,L]
+
+RewriteRule ^lapsaldobulan$ media.php?module=lapsaldobulan [QSA,L]
+
+RewriteRule ^lapsaldotahun$ media.php?module=lapsaldotahun [QSA,L]
+
+
+RewriteRule ^log-login$ media.php?module=log_login [QSA,L]
+RewriteRule ^data-log-login$ content/log_login/aksi.php?act=data [QSA,L]
+
+
+RewriteRule ^log-activity$ media.php?module=log_activity [QSA,L]
+RewriteRule ^data-log-activity$ content/log_activity/aksi.php?act=data [QSA,L]
+
+
+
+RewriteRule ^pindahinternal$ media.php?module=pindahinternal [QSA,L]
+RewriteRule ^tambah-pindahinternal$ media.php?module=pindahinternal&act=tambah [QSA,L]
+RewriteRule ^aksi-tambah-pindahinternal$ content/pindahinternal/aksi.php?act=input [QSA,L]
+RewriteRule ^data-akunlawan$ content/pindahinternal/aksi.php?act=akunlawan [QSA,L]
+RewriteRule ^edit-pindahinternal-([0-9a-zA-Z-]+)$ media.php?module=pindahinternal&act=edit&id=$1 [QSA,L]
+RewriteRule ^aksi-edit-pindahinternal$ content/pindahinternal/aksi.php?act=update [QSA,L]
+RewriteRule ^aksi-hapus-pindahinternal-([0-9a-zA-Z-]+)$ content/pindahinternal/aksi.php?act=delete&id=$1 [QSA,L]
+RewriteRule ^cetak-pindahinternal-([0-9a-zA-Z-]+)$ content/pindahinternal/aksi.php?act=cetak&id=$1 [QSA,L]
+
+
+RewriteRule ^pemasukanlain$ media.php?module=pemasukanlain [QSA,L]
+RewriteRule ^tambah-pemasukanlain$ media.php?module=pemasukanlain&act=tambah [QSA,L]
+RewriteRule ^data-akunlawan-pemasukanlain$ content/pemasukanlain/aksi.php?act=akunlawan [QSA,L]
+RewriteRule ^aksi-tambah-pemasukanlain$ content/pemasukanlain/aksi.php?act=input [QSA,L]
+RewriteRule ^edit-pemasukanlain-([0-9a-zA-Z-]+)$ media.php?module=pemasukanlain&act=edit&id=$1 [QSA,L]
+RewriteRule ^aksi-edit-pemasukanlain$ content/pemasukanlain/aksi.php?act=update [QSA,L]
+RewriteRule ^aksi-hapus-pemasukanlain-([0-9a-zA-Z-]+)$ content/pemasukanlain/aksi.php?act=delete&id=$1 [QSA,L]
+RewriteRule ^cetak-pemasukanlain-([0-9a-zA-Z-]+)$ content/pemasukanlain/aksi.php?act=cetak&id=$1 [QSA,L]
+
+
+RewriteRule ^pengeluaranlain$ media.php?module=pengeluaranlain [QSA,L]
+RewriteRule ^tambah-pengeluaranlain$ media.php?module=pengeluaranlain&act=tambah [QSA,L]
+RewriteRule ^data-akunlawan-pengeluaranlain$ content/pengeluaranlain/aksi.php?act=akunlawan [QSA,L]
+RewriteRule ^aksi-tambah-pengeluaranlain$ content/pengeluaranlain/aksi.php?act=input [QSA,L]
+RewriteRule ^edit-pengeluaranlain-([0-9a-zA-Z-]+)$ media.php?module=pengeluaranlain&act=edit&id=$1 [QSA,L]
+RewriteRule ^aksi-edit-pengeluaranlain$ content/pengeluaranlain/aksi.php?act=update [QSA,L]
+RewriteRule ^aksi-hapus-pengeluaranlain-([0-9a-zA-Z-]+)$ content/pengeluaranlain/aksi.php?act=delete&id=$1 [QSA,L]
+RewriteRule ^cetak-pengeluaranlain-([0-9a-zA-Z-]+)$ content/pengeluaranlain/aksi.php?act=cetak&id=$1 [QSA,L]
+
+
+RewriteRule ^biaya$ media.php?module=biaya [QSA,L]
+RewriteRule ^tambah-biaya$ media.php?module=biaya&act=tambah [QSA,L]
+RewriteRule ^aksi-tambah-biaya$ content/biaya/aksi.php?act=input [QSA,L]
+RewriteRule ^edit-biaya-([0-9a-zA-Z-]+)$ media.php?module=biaya&act=edit&id=$1 [QSA,L]
+RewriteRule ^aksi-edit-biaya$ content/biaya/aksi.php?act=update [QSA,L]
+RewriteRule ^aksi-hapus-biaya-([0-9a-zA-Z-]+)$ content/biaya/aksi.php?act=delete&id=$1 [QSA,L]
+RewriteRule ^cetak-biaya-([0-9a-zA-Z-]+)$ content/biaya/aksi.php?act=cetak&id=$1 [QSA,L]
+
+
+RewriteRule ^fakturkeluar$ media.php?module=fakturkeluar [QSA,L]
+RewriteRule ^tambah-fakturkeluar$ media.php?module=fakturkeluar&act=tambah [QSA,L]
+
+RewriteRule ^ppsa$ media.php?module=ppsa [QSA,L]
+RewriteRule ^tambah-ppsa$ media.php?module=ppsa&act=tambah [QSA,L]
+RewriteRule ^data-akunlawan-ppsa$ content/ppsa/aksi.php?act=akunlawan [QSA,L]
+RewriteRule ^aksi-tambah-ppsa$ content/ppsa/aksi.php?act=input [QSA,L]
+RewriteRule ^edit-ppsa-([0-9a-zA-Z-]+)$ media.php?module=ppsa&act=edit&id=$1 [QSA,L]
+RewriteRule ^aksi-edit-ppsa$ content/ppsa/aksi.php?act=update [QSA,L]
+RewriteRule ^aksi-hapus-ppsa-([0-9a-zA-Z-]+)$ content/ppsa/aksi.php?act=delete&id=$1 [QSA,L]
+RewriteRule ^cetak-ppsa-([0-9a-zA-Z-]+)$ content/ppsa/aksi.php?act=cetak&id=$1 [QSA,L]
+
+
+RewriteRule ^phsa$ media.php?module=phsa [QSA,L]
+RewriteRule ^tambah-phsa$ media.php?module=phsa&act=tambah [QSA,L]
+RewriteRule ^data-akunlawan-phsa$ content/phsa/aksi.php?act=akunlawan [QSA,L]
+RewriteRule ^aksi-tambah-phsa$ content/phsa/aksi.php?act=input [QSA,L]
+RewriteRule ^edit-phsa-([0-9a-zA-Z-]+)$ media.php?module=phsa&act=edit&id=$1 [QSA,L]
+RewriteRule ^aksi-edit-phsa$ content/phsa/aksi.php?act=update [QSA,L]
+RewriteRule ^aksi-hapus-phsa-([0-9a-zA-Z-]+)$ content/phsa/aksi.php?act=delete&id=$1 [QSA,L]
+RewriteRule ^cetak-phsa-([0-9a-zA-Z-]+)$ content/phsa/aksi.php?act=cetak&id=$1 [QSA,L]
+
+RewriteRule ^penjualan$ media.php?module=penjualan [QSA,L]
+
+RewriteRule ^pembelian$ media.php?module=pembelian [QSA,L]
+
+
+
+RewriteRule ^jurpen$ media.php?module=jurpen [QSA,L]
+RewriteRule ^tambah-jurpen$ media.php?module=jurpen&act=tambah [QSA,L]
+RewriteRule ^aksi-tambah-jurpen$ content/jurpen/aksi.php?act=input [QSA,L]
+RewriteRule ^edit-jurpen-([0-9a-zA-Z-]+)$ media.php?module=jurpen&act=edit&id=$1 [QSA,L]
+RewriteRule ^aksi-edit-jurpen$ content/jurpen/aksi.php?act=update [QSA,L]
+RewriteRule ^aksi-hapus-jurpen-([0-9a-zA-Z-]+)$ content/jurpen/aksi.php?act=delete&id=$1 [QSA,L]
+RewriteRule ^cetak-jurpen-([0-9a-zA-Z-]+)$ content/jurpen/aksi.php?act=cetak&id=$1 [QSA,L]
+
+### PUNYA ERMAN
+
+RewriteRule ^kirimbayar$ media.php?module=kirimbayar [QSA,L]
+RewriteRule ^tambah-kirimbayar$ media.php?module=kirimbayar&act=tambah [QSA,L]
+RewriteRule ^aksi-hapus-kirimbayar-([0-9a-zA-Z-]+)$ content/kirimbayar/aksi.php?act=delete&uid=$1 [QSA,L]
+RewriteRule ^tambah-akunkredit-pembelian$ content/kirimbayar/aksi.php?act=tambahakunkreditpembelian [QSA,L]
+RewriteRule ^tambah-akundebet-pembelian$ content/kirimbayar/aksi.php?act=tambahakundebetpembelian [QSA,L]
+RewriteRule ^aksi-bayar-pembelian$ content/kirimbayar/aksi.php?act=aksibayarpembelian [QSA,L]
+RewriteRule ^view-kirimbayar-([0-9a-zA-Z-]+)$ media.php?module=kirimbayar&act=view&uid=$1 [QSA,L]
+RewriteRule ^cetak-kirimbayar-([0-9a-zA-Z-]+)$ content/kirimbayar/cetak.php?uid=$1 [QSA,L]
+
+RewriteRule ^terimabayar$ media.php?module=terimabayar [QSA,L]
+RewriteRule ^tambah-terimabayar$ media.php?module=terimabayar&act=tambah [QSA,L]
+RewriteRule ^aksi-hapus-terimabayar-([0-9a-zA-Z-]+)$ content/terimabayar/aksi.php?act=delete&uid=$1 [QSA,L]
+RewriteRule ^tambah-akunkredit-penjualan$ content/terimabayar/aksi.php?act=tambahakunkreditpenjualan [QSA,L]
+RewriteRule ^aksi-bayar-penjualan$ content/terimabayar/aksi.php?act=aksibayarpenjualan [QSA,L]
+RewriteRule ^view-terimabayar-([0-9a-zA-Z-]+)$ media.php?module=terimabayar&act=view&uid=$1 [QSA,L]
+RewriteRule ^cetak-terimabayar-([0-9a-zA-Z-]+)$ content/terimabayar/cetak.php?uid=$1 [QSA,L]
+
+RewriteRule ^fakturkeluar$ media.php?module=fakturkeluar [QSA,L]
+RewriteRule ^tambah-fakturkeluar$ media.php?module=fakturkeluar&act=tambah [QSA,L]
+
+RewriteRule ^bukafaktur$ media.php?module=bukafaktur [QSA,L]
+RewriteRule ^bukafaktur-([0-9a-zA-Z-]+)$ media.php?module=bukafaktur&act=bukafaktur&uid=$1 [QSA,L]
+RewriteRule ^tambah-bukafaktur-([0-9a-zA-Z-]+)$ media.php?module=bukafaktur&act=tambah&uid=$1 [QSA,L]
+RewriteRule ^edit-bukafaktur-([0-9a-zA-Z-]+)$ media.php?module=bukafaktur&act=edit&uid=$1 [QSA,L]
+RewriteRule ^aksi-hapus-bukafaktur-([0-9a-zA-Z-]+)$ content/bukafaktur/aksi.php?act=delete&uid=$1 [QSA,L]
+RewriteRule ^aksi-tambah-bukafaktur$ content/bukafaktur/aksi.php?act=input [QSA,L]
+RewriteRule ^aksi-edit-bukafaktur$ content/bukafaktur/aksi.php?act=edit [QSA,L]
+RewriteRule ^view-bukafaktur-([0-9a-zA-Z-]+)$ media.php?module=bukafaktur&act=view&uid=$1 [QSA,L]
+RewriteRule ^cetak-bukafaktur-([0-9a-zA-Z-]+)$ content/bukafaktur/cetak.php?uid=$1 [QSA,L]
+
+RewriteRule ^tambah-detail-bukafaktur$ content/bukafaktur/aksi.php?act=tambah_detail [QSA,L]
+RewriteRule ^edit-detail-bukafaktur$ content/bukafaktur/aksi.php?act=edit_detail [QSA,L]
+RewriteRule ^aksi-tambah-detail-bukafaktur$ content/bukafaktur/aksi.php?act=input_detail [QSA,L]
+RewriteRule ^aksi-edit-detail-bukafaktur$ content/bukafaktur/aksi.php?act=update_detail [QSA,L]
+RewriteRule ^aksi-hapus-detail-bukafaktur-([0-9a-zA-Z-]+)$ content/bukafaktur/aksi.php?act=delete_detail&uid=$1 [QSA,L]
+
+RewriteRule ^edit-tambah-bukafaktur$ content/bukafaktur/aksi.php?act=edit_tambah_detail [QSA,L]
+RewriteRule ^edit-edit-bukafaktur$ content/bukafaktur/aksi.php?act=edit_edit_detail [QSA,L] 
+RewriteRule ^edit-tambah-detail-bukafaktur$ content/bukafaktur/aksi.php?act=edit_input_detail [QSA,L]
+RewriteRule ^edit-edit-detail-bukafaktur$ content/bukafaktur/aksi.php?act=edit_update_detail [QSA,L]
+RewriteRule ^edit-hapus-detail-bukafaktur$ content/bukafaktur/aksi.php?act=edit_delete_detail&id=$1 [QSA,L]
+
+
+RewriteRule ^persediaan$ media.php?module=persediaan [QSA,L]
+RewriteRule ^tambah-persediaan$ media.php?module=persediaan&act=tambah [QSA,L]
+RewriteRule ^aksi-hapus-persediaan-([0-9a-zA-Z-]+)$ content/persediaan/aksi.php?act=delete&uid=$1 [QSA,L]
+RewriteRule ^tambah-akunkredit-persediaan$ content/persediaan/aksi.php?act=tambahakunkreditpersediaan [QSA,L]
+RewriteRule ^tambah-akundebet-persediaan$ content/persediaan/aksi.php?act=tambahakundebetpersediaan [QSA,L]
+RewriteRule ^aksi-bayar-persediaan$ content/persediaan/aksi.php?act=aksibayarpersediaan [QSA,L]
+RewriteRule ^view-persediaan-([0-9a-zA-Z-]+)$ media.php?module=persediaan&act=view&uid=$1 [QSA,L]
+RewriteRule ^cetak-persediaan-([0-9a-zA-Z-]+)$ content/persediaan/cetak.php?uid=$1 [QSA,L]
+
+
+RewriteRule ^laplabarugi$ media.php?module=laplabarugi [QSA,L]
+RewriteRule ^cetak-laplabarugi$ content/laplabarugi/cetak.php [QSA,L]
+
+RewriteRule ^lapneraca$ media.php?module=lapneraca [QSA,L]
+RewriteRule ^cetak-lapneraca$ content/lapneraca/cetak.php [QSA,L]
+
+
+RewriteRule ^lapneracadetail$ media.php?module=lapneracadetail [QSA,L]
+RewriteRule ^cetak-lapneracadetail$ content/lapneracadetail/cetak.php [QSA,L]
+
+## Get data
+
+RewriteRule ^getPembayaran$ content/getData/pembayaran.php [L]
+RewriteRule ^getPembelian$ content/getData/pembelian.php [L]
+RewriteRule ^getPersediaan$ content/getData/persediaan.php [L]
+
+
+Options All -Indexes
+
+</IfModule>
