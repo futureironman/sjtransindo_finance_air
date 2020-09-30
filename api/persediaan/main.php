@@ -21,7 +21,6 @@ include "../../konfig/koneksi.php";
         $keluar= $data["keluar"];
         $hasil=$masuk-$keluar;
         $tipe=$data["tipe"];
-        echo $hasil;
       if($uid_akun_kotak != '' || $uid_beban_kotak != ''){
 
         if ($hasil > 0){
@@ -67,7 +66,6 @@ include "../../konfig/koneksi.php";
         //PENCATATAN DI LOG KEU AKUN KOTAK
         $sql = "INSERT INTO keu_akun_log (uid_akun, created_at, id_data, id_status, keterangan, debet, kredit, saldo,tabel,uid_akun_efek) VALUES ('$uid_akun_kotak', '$waktu', '$uid_akun', '4', '$keterangan','$total','0','$saldo_kredit', 'detail_barang_log','$uid_akun')";
         $insert = pg_query($conn, $sql);
-        echo $sql;
         // Update keuangan KOTAK sesudah tanggal
         pg_query($conn, "UPDATE keu_akun SET saldo_terkini= (saldo_terkini + $total) WHERE uid='$uid_akun_kotak'");
         pg_query($conn, "UPDATE keu_akun_log SET saldo= (saldo+$total) WHERE uid_akun='$uid_akun_kotak' AND created_at > '$waktu' ");
