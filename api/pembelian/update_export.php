@@ -4,14 +4,15 @@ include "../../konfig/koneksi.php";
 include "../../konfig/library.php";
 
 /// DELETE ALL
-   // $data = pg_fetch_array(pg_query($conn, "SELECT MAX(id) as id_data FROM inv_detail_pembelian"));
-   $a = pg_fetch_array(pg_query($conn, "SELECT a.total, a.uid_inv_header, b.uid as uid_supplier, a.tanggal_pembelian FROM inv_detail_pembelian a, keu_akun b WHERE a.id='$_POST[id]' and a.uid_suplier=b.uid_data  and b.linked_table = 'master_supplier'"));
 
-   $uid_akun_terima = '9e3e2adc-c6d7-ff33-2dda-ecea464d48d8';
-   $uid_inv_header = $a["uid_inv_header"];
-   $uid_supplier = $a["uid_supplier"];
-   $total = $a["total"];
-   $waktu= $a["tanggal_pembelian"];
+        // $data = pg_fetch_array(pg_query($conn, "SELECT MAX(id) as id_data FROM inv_detail_pembelian"));
+        $a = pg_fetch_array(pg_query($conn, "SELECT a.total, a.uid_inv_header, b.uid as uid_supplier, a.tanggal_pembelian FROM inv_detail_pembelian a, keu_akun b WHERE a.id='$_POST[id]' and a.uid_suplier=b.uid_data  and b.linked_table = 'master_supplier'"));
+
+        $uid_akun_terima = '9e3e2adc-c6d7-ff33-2dda-ecea464d48d8';
+        $uid_inv_header = $a["uid_inv_header"];
+        $uid_supplier = $a["uid_supplier"];
+        $total = $a["total"];
+        $waktu= $a["tanggal_pembelian"];
         
         // update saldo terkini Customer
         pg_query($conn, "UPDATE keu_akun SET saldo_terkini= (saldo_terkini - $a[total]) WHERE uid='$uid_suplier'");
