@@ -2,9 +2,9 @@
  
  $host = "localhost";
  $port = "5432";
- $dbname = "sjtransindo_crm";
- $user = "lunata";
- $password = "r4h4si4Kit4Bers4m4";
+ $dbname = "sjt_crm";
+ $user = "sjt_root";
+ $password = "XNzZ7882sSSRJp5y";
  $pg_options = "--client_encoding=UTF8";
  
  $connection_string = "host={$host} port={$port} dbname={$dbname} user={$user} password={$password} options='{$pg_options}'";
