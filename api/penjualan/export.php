@@ -52,6 +52,7 @@ include "../../konfig/koneksi.php";
 
         $sql = "INSERT INTO keu_akun_log (uid_akun, created_at, id_data, id_status, keterangan, debet, kredit, saldo, keterangan_detail, tabel,uid_akun_efek) VALUES ('$uid_customer', '$waktu', '$uid_invoice_header', '25', '$invoice_number','$total', '0', '$saldo_kredit', '$keterangan_detail', 'invoice_header','$uid_akun_terima')";
         $insert = pg_query($conn, $sql);
+        echo $sql;
         // Update keuangan customer sesudah tanggal
         pg_query($conn, "UPDATE keu_akun SET saldo_terkini= (saldo_terkini + $total) WHERE uid='$uid_customer'");
         pg_query($conn, "UPDATE keu_akun_log SET saldo= (saldo+$total) WHERE uid_akun='$uid_customer' AND created_at > '$waktu' ");
