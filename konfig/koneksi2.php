@@ -1,8 +1,8 @@
 <?php
 $host='localhost';
-$db = 'sjtransindo_crm';
-$username = 'lunata';
-$password = 'r4h4si4Kit4Bers4m4';
+$db = 'sjt_crm';
+$username = 'sjt_root';
+$password = "XNzZ7882sSSRJp5y";
 $dsn = "pgsql:host=$host;port=5432;dbname=$db;user=$username;password=$password";
  
 try{
